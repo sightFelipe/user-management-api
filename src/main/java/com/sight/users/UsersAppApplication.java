@@ -32,12 +32,14 @@ public class UsersAppApplication implements ApplicationRunner {
         for (int i = 0; i < 100000; i++) {
             User user = new User();
             user.setUsername(faker.name().username());
-            user.setPassword(faker.dragonBall().character());
+            user.setPassword(faker.gameOfThrones().character());
 
             Profile profile = new Profile();
             profile.setFirstname(faker.name().firstName());
             profile.setLastName(faker.name().lastName());
             profile.setBirthdate(faker.date().birthday());
+
+            profile.setUser(user);
 
             userRepository.save(user);
             profileRepository.save(profile);
